@@ -270,7 +270,9 @@ class _LoginPageState extends State<LoginPage> {
                     // )
                   ],
                 ),
-                SizedBox(height: 205,),
+                SizedBox(
+                  height: 205,
+                ),
                 AlreadyHaveAnAccountCheck(
                   press: () {
                     Navigator.push(context,
