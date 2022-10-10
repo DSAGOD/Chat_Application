@@ -83,13 +83,15 @@ class _RegistrationState extends State<Registration> {
               ),
               TextField(
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide()),
-                  hintText: '',
-                  hintStyle: TextStyle(fontWeight: FontWeight.w100),
-                  prefixIcon: Icon(Icons.phone , color: Color(0xff188F79),)
-                ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide()),
+                    hintText: '',
+                    hintStyle: TextStyle(fontWeight: FontWeight.w100),
+                    prefixIcon: Icon(
+                      Icons.phone,
+                      color: Color(0xff188F79),
+                    )),
               ),
               SizedBox(
                 height: 10,
@@ -103,7 +105,7 @@ class _RegistrationState extends State<Registration> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide()),
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.lock,
                       color: Color(0xff188F79),
                     ),

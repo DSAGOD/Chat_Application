@@ -3,7 +3,7 @@ import 'package:chat_app/register.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:flutter/src/material/colors.dart';
 import 'already_have_an_account_check.dart';
 
 void main() {
@@ -19,12 +19,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // primarySwatch: Colors.green,
+        primarySwatch: Colors.teal,
       ),
       home: LoginPage(),
       routes: {
         "/MainPage": (BuildContext content) => new MainPage(),
       },
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -43,9 +45,9 @@ Color getColor(Set<MaterialState> states) {
     MaterialState.focused,
   };
   if (states.any(interactiveStates.contains)) {
-    return Colors.blue;
+    return Colors.green;
   }
-  return Colors.blue;
+  return Colors.green;
 }
 
 bool value = false;
