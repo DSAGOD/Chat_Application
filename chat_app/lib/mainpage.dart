@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -15,7 +17,9 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
       return (
         SafeArea(child: Scaffold(
-          
+          appBar: AppBar(
+            title: Text("Home"),
+          ),
         ))
       );
   }

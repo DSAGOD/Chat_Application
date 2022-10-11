@@ -1,0 +1,39 @@
+ {
+  "project_info": {
+    "project_number": "213088937688",
+    "project_id": "phone-otp-a0c83",
+    "storage_bucket": "phone-otp-a0c83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213088937688:android:e290f860c314f4f80b59ad",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213088937688-so4265ei6qvnv2sg1jg2p18itcpjb4ok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcG8wZNYXvwsr7bCZSyCraIzoWhgwu0F0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213088937688-so4265ei6qvnv2sg1jg2p18itcpjb4ok.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,12 +1,15 @@
 import 'package:chat_app/already_have_an_account_check.dart';
 import 'package:chat_app/main.dart';
+import 'package:chat_app/otp.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import 'login.dart';
 import 'mainpage.dart';
 
 class Registration extends StatefulWidget {
   const Registration({Key? key}) : super(key: key);
-
+  static String verify = "";
   @override
   State<Registration> createState() => _RegistrationState();
 }
@@ -29,6 +32,12 @@ class _RegistrationState extends State<Registration> {
   @override
   bool _isHidden = true;
   bool _obsecuretext = true;
+  TextEditingController phoneController = new TextEditingController();
+  bool phoneNumPassed = false;
+  String countryCode = '+91';
+  final _emailController = new TextEditingController();
+  final _passwordController = new TextEditingController();
+
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
@@ -61,6 +70,7 @@ class _RegistrationState extends State<Registration> {
                 height: 10,
               ),
               TextField(
+                controller: _emailController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -82,14 +92,18 @@ class _RegistrationState extends State<Registration> {
                 height: 10,
               ),
               TextField(
+                controller: phoneController,
+                keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide()),
-                  hintText: '',
-                  hintStyle: TextStyle(fontWeight: FontWeight.w100),
-                  prefixIcon: Icon(Icons.phone , color: Color(0xff188F79),)
-                ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide()),
+                    hintText: '+91',
+                    hintStyle: TextStyle(fontWeight: FontWeight.w100),
+                    prefixIcon: Icon(
+                      Icons.phone,
+                      color: Color(0xff188F79),
+                    )),
               ),
               SizedBox(
                 height: 10,
@@ -99,6 +113,7 @@ class _RegistrationState extends State<Registration> {
                 height: 10,
               ),
               TextField(
+                controller: _passwordController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -157,10 +172,44 @@ class _RegistrationState extends State<Registration> {
                   primary: Color(0xff188F79),
                   // fromHeight use double.infinity as width and 40 is the height
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                onPressed: () async {
+                  try {
+                    final credential = await FirebaseAuth.instance
+                        .createUserWithEmailAndPassword(
+                      email: _emailController.text.trim(),
+                      password: _passwordController.text.trim(),
+                    );
+                  } on FirebaseAuthException catch (e) {
+                    if (e.code == 'weak-password') {
+                      print('The password provided is too weak.');
+                    } else if (e.code == 'email-already-in-use') {
+                      print('The account already exists for that email.');
+                    }
+                  } catch (e) {
+                    print(e);
+                  }
+                  await FirebaseAuth.instance.verifyPhoneNumber(
+                    phoneNumber: '${countryCode + phoneController.text}',
+                    verificationCompleted: (PhoneAuthCredential credential) {},
+                    verificationFailed: (FirebaseAuthException e) {},
+                    codeSent: (String verificationId, int? resendToken) {
+                      Registration.verify = verificationId;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => otp(
+                                  phoneNumber:
+                                      (phoneController.text.length) == 0
+                                          ? ""
+                                          : phoneController.text,
+                                  phoneNumPassed:
+                                      (phoneController.text.length) == 0
+                                          ? false
+                                          : true,
+                                )),
+                      );
+                    },
+                    codeAutoRetrievalTimeout: (String verificationId) {},
                   );
                 },
                 child: Text('Sign Up'),
