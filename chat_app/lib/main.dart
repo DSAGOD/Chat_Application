@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         // primarySwatch: Colors.green,
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.blue,
       ),
       home: LoginPage(),
       routes: {
@@ -45,9 +45,9 @@ Color getColor(Set<MaterialState> states) {
     MaterialState.focused,
   };
   if (states.any(interactiveStates.contains)) {
-    return Colors.green;
+    return Color(0xFF2196F3);
   }
-  return Colors.green;
+  return Color(0xFF2196F3);
 }
 
 bool value = false;
@@ -73,22 +73,24 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: 70,
                 ),
-                Row(
-                  children: [
-                    Text.rich(TextSpan(
-                      text: "Hello! Welcome back!",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25.0,
+                Center(
+                  child: Row(
+                    children: [
+                      Text.rich(TextSpan(
+                        text: "Hello! Welcome back!",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25.0,
+                        ),
+                      )),
+                      Text(
+                        "",
+                        style: TextStyle(
+                          fontSize: 24.0,
+                        ),
                       ),
-                    )),
-                    Text(
-                      "👋",
-                      style: TextStyle(
-                        fontSize: 24.0,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 SizedBox(height: 3.0),
                 Text(
@@ -119,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                             borderSide: BorderSide()),
                         prefixIcon: Icon(
                           Icons.person,
-                          color: Color(0xff188F79),
+                          color: Color(0xFF2196F3),
                         ),
                         hintText: 'Enter your email',
                         hintStyle: TextStyle(fontWeight: FontWeight.w100),
@@ -144,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
                             borderSide: BorderSide()),
                         prefixIcon: Icon(
                           Icons.lock,
-                          color: Color(0xff188F79),
+                          color: Color(0xFF2196F3),
                         ),
                         hintText: 'Enter your password',
                         hintStyle: TextStyle(fontWeight: FontWeight.w100),
@@ -152,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
                           onTap: _togglePassword,
                           child: Icon(
                             _isHidden ? Icons.visibility : Icons.visibility_off,
-                            color: Color(0xff188F79),
+                            color: Color(0xFF2196F3),
                           ),
                         ),
                       ),
@@ -195,7 +197,7 @@ class _LoginPageState extends State<LoginPage> {
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size.fromHeight(40),
-                        primary: Color(0xff188F79),
+                        primary: Color(0xFF2196F3),
                         // fromHeight use double.infinity as width and 40 is the height
                       ),
                       onPressed: () {

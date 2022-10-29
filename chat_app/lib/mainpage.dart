@@ -77,7 +77,7 @@ class _MainPageState extends State<MainPage>
           ChatPage(),
         ],
       ),
-      drawer: MyDrawer(),
+      // drawer: MyDrawer(),
       // floatingActionButton: FloatingActionButton(
       //   onPressed: () {
       //     print("hello");

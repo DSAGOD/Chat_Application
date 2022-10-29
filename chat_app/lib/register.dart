@@ -18,9 +18,9 @@ Color getColor(Set<MaterialState> states) {
     MaterialState.focused,
   };
   if (states.any(interactiveStates.contains)) {
-    return Colors.blue;
+    return Color(0xFF2196F3);
   }
-  return Colors.blue;
+  return Color(0xFF2196F3);
 }
 
 bool value = false;
@@ -68,7 +68,8 @@ class _RegistrationState extends State<Registration> {
                   hintText: 'Enter your email',
                   prefixIcon: Icon(
                     Icons.person,
-                    color: Color(0xff188F79),
+                    color: Color(0xFF2196F3),
+                    // color: Color(0xff188F79),
                   ),
                   hintStyle: TextStyle(fontWeight: FontWeight.w100),
                 ),
@@ -90,7 +91,8 @@ class _RegistrationState extends State<Registration> {
                     hintStyle: TextStyle(fontWeight: FontWeight.w100),
                     prefixIcon: Icon(
                       Icons.phone,
-                      color: Color(0xff188F79),
+                      // color: Color(0xff188F79),
+                      color: Color(0xFF2196F3),
                     )),
               ),
               SizedBox(
@@ -107,14 +109,16 @@ class _RegistrationState extends State<Registration> {
                         borderSide: BorderSide()),
                     prefixIcon: const Icon(
                       Icons.lock,
-                      color: Color(0xff188F79),
+                      // color: Color(0xff188F79),
+                      color: Color(0xFF2196F3),
                     ),
                     hintText: 'Enter your password',
                     hintStyle: TextStyle(fontWeight: FontWeight.w100),
                     suffixIcon: InkWell(
                       child: Icon(
                         _isHidden ? Icons.visibility : Icons.visibility_off,
-                        color: Color(0xff188F79),
+                        // color: Color(0xff188F79),
+                        color: Color(0xFF2196F3),
                       ),
                       onTap: _togglePassword,
                     )),
@@ -156,7 +160,8 @@ class _RegistrationState extends State<Registration> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size.fromHeight(40),
-                  primary: Color(0xff188F79),
+                  // primary: Color(0xff188F79),
+                  primary: Color(0xFF2196F3),
                   // fromHeight use double.infinity as width and 40 is the height
                 ),
                 onPressed: () {

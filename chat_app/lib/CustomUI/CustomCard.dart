@@ -11,8 +11,12 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: ((context) => individualChat())));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => individualChat(
+                      chatModel: chatModel,
+                    )));
       },
       child: Column(
         children: [
@@ -24,7 +28,7 @@ class CustomCard extends StatelessWidget {
                 height: 30,
                 width: 30,
               ),
-              backgroundColor: Colors.grey,
+              backgroundColor: Color(0xFFABD6F7),
             ),
             title: Text(
               chatModel.name,

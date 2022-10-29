@@ -1,6 +1,5 @@
-
-
 import 'package:flutter/material.dart';
+
 class AlreadyHaveAnAccountCheck extends StatelessWidget {
   final bool login;
   final Function? press;
@@ -24,7 +23,7 @@ class AlreadyHaveAnAccountCheck extends StatelessWidget {
           child: Text(
             login ? "Sign Up" : "Sign In",
             style: TextStyle(
-                color: Color(0xff188F79), fontWeight: FontWeight.bold),
+                color: Color(0xFF2196F3), fontWeight: FontWeight.bold),
           ),
         ),
       ],
